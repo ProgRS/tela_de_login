@@ -1,20 +1,61 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import {
+  ScrollView,
+  View,
+  Text,
+  Image, 
+  TouchableOpacity,
+  TextInput
 
-export default function App() {
+} from 'react-native';
+import { styles } from "./styles";
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ScrollView style={styles.scrollView}>
+        <View style={styles.container}>
+          <Image source={require('./assets/logo.png')} style={styles.logo}/>
+          <Text style={styles.h1} >Sistema de Login</Text>
+          <Text style={styles.h2}>Bem vindo(a)! Digite seus dados abaixo</Text>
+          
+          <View style={styles.inputArea}>
+            <Text style={styles.inputLabel}>Email</Text>
+            <TextInput 
+            style={styles.inputField}
+            placeholder="Digite seu email"
+            />
+          </View>
+          <View style={styles.inputArea}>
+            <Text style={styles.inputLabel}>Senha</Text>
+            <TextInput 
+            style={styles.inputField}
+            placeholder="*******"
+            secureTextEntry
+            />
+          </View>
+          <View style={styles.aditionals}>
+            <TouchableOpacity style={styles.forgotBtnArea}>
+              <Text style={styles.forgotBtnText}>Esqueci minha senha</Text>
+            </TouchableOpacity>
+
+          </View>
+
+          <TouchableOpacity style={styles.button}>
+                <Text style={styles.buttonText}>Entrar</Text>
+          </TouchableOpacity>
+
+          <View style={styles.signUpArea}>
+            <Text style={styles.signUpText}>Não tem uma conta?</Text>
+              <TouchableOpacity >
+                <Text style={styles.signUpBtnText}>Cadastre-se</Text>
+              </TouchableOpacity>
+          </View>
+          <View  style={styles.footerArea}>
+            <Text style={styles.footerText}>Criado por Luís</Text>
+          </View>
+        </View>
+    </ScrollView>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
